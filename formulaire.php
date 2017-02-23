@@ -5,7 +5,6 @@
     <title>Formulaire</title>
     <link rel="stylesheet" href="main.css">
       <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-      <script type="text/javascript" src="javascript.js"></script>
 
 
 
@@ -52,15 +51,16 @@
             <div class="container-formgroup">
               <div class="container-form-input-bloc">
                 <div class="intitule">
-                  <label for="nom"  class="intitule">Nom * :</label>
+                  <label for="nom" class="intitule">Nom * :</label>
                 </div>
                 <div class="bloc-input-form">
                     <div>
-                        <input id="nom" cl-validate-not-empty class="<?php if(isset($_SESSION['champs']['nom'])){echo "erreur"; }else{echo"input-form";}?>" type="text" name="nom" value="<?php if(isset($nom)){ echo $nom;} ?>">
+                        <input id="nom"  cl-validate-not-empty class="<?php if(isset($_SESSION['champs']['nom'])){echo "erreur"; }else{echo"input-form";}?>" type="text" name="nom" value="<?php if(isset($nom)){ echo $nom;} ?>">
+
+                        <?php if(isset($_SESSION['champs']['nom'])) { ?>
+                            <br><span class="erreur"><?php echo $_SESSION['champs']['nom']; ?></span>
+                        <?php } ?>
                     </div>
-                    <?php if(isset($_SESSION['champs']['nom'])) { ?>
-                        <span class="erreur"><?php echo $_SESSION['champs']['nom']; ?></span>
-                    <?php } ?>
                 </div>
               </div>
 
@@ -192,10 +192,11 @@
                   <div class="bloc-input-form">
                         <div>
                             <input id="telephone-societe" class="<?php if(isset($_SESSION['champs']['telephone1'])){echo "erreur"; }else{echo "input-form";} ?>" type="tel" name="telephone1" value="<?php if(isset($telephone1)){ echo $telephone1;} ?>">
+
+                            <?php if(isset($_SESSION['champs']['telephone1'])) { ?>
+                                <br><span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
+                            <?php } ?>
                         </div>
-                        <?php if(isset($_SESSION['champs']['telephone1'])) { ?>
-                            <span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
-                        <?php } ?>
                   </div>
                 </div>
               </div>
@@ -226,7 +227,6 @@
                   <?php } ?>
               </div>
 
-
               <div class="container-formgroup">
                 <div class="container-form-input-bloc">
                   <div class="intitule">
@@ -234,11 +234,12 @@
                   </div>
                     <div class="bloc-input-form">
                         <div>
-                            <input id="telephone-fixe" class="<?php if(isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])){echo "erreur"; }else{echo "input-form";} ?>" type="tel" name="telephone1" value="<?php if(isset($telephone1)){ echo $telephone1;} ?>">
+                            <input data-cond="this.value != ''" data-error="Veuillez indiquer tel" id="telephone-fixe" class="<?php if(isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])){echo "erreur"; }else{echo "input-form";} ?>" type="tel" name="telephone1" value="<?php if(isset($telephone1)){ echo $telephone1;} ?>">
+
+                            <?php if(isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { ?>
+                               <br> <span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
+                            <?php } ?>
                         </div>
-                        <?php if(isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { ?>
-                            <span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
-                        <?php } ?>
                     </div>
               </div>
 
@@ -250,10 +251,11 @@
                            <div class="bloc-input-form">
                               <div>
                                   <input id="telephone-portable" class="<?php if(isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])){echo "erreur"; }else{echo "input-form";} ?>" type="tel" name="telephone2" value="<?php if(isset($telephone2)){ echo $telephone2;} ?>">
+
+                                  <?php if(isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { ?>
+                                      <br><span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
+                                  <?php } ?>
                               </div>
-                              <?php if(isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { ?>
-                                  <span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
-                              <?php } ?>
                            </div>
                       </div>
             <?php }?>
@@ -288,5 +290,7 @@
         </div>
       </div>
     </div>
+
+    <script type="text/javascript" src="javascript.js"></script>
   </body>
 </html>
