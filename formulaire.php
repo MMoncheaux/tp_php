@@ -4,17 +4,19 @@
     <meta charset="utf-8">
     <title>Formulaire</title>
     <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="javascript.js">
+      <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+      <script type="text/javascript" src="javascript.js"></script>
 
-    </script>
+
+
     <?php
       session_start();
-    session_destroy();
 
 
       if(isset($_SESSION['input'])){
         extract($_SESSION['input']);
       }
+    
       ?>
 
   </head>
@@ -54,7 +56,7 @@
                 </div>
                 <div class="bloc-input-form">
                     <div>
-                        <input id="nom" class="<?php if(isset($_SESSION['champs']['nom'])){echo "erreur"; }else{echo"input-form";}?>" type="text" name="nom" value="<?php if(isset($nom)){ echo $nom;} ?>">
+                        <input id="nom" cl-validate-not-empty class="<?php if(isset($_SESSION['champs']['nom'])){echo "erreur"; }else{echo"input-form";}?>" type="text" name="nom" value="<?php if(isset($nom)){ echo $nom;} ?>">
                     </div>
                     <?php if(isset($_SESSION['champs']['nom'])) { ?>
                         <span class="erreur"><?php echo $_SESSION['champs']['nom']; ?></span>
@@ -71,7 +73,7 @@
                 </div>
                 <div class="bloc-input-form">
                     <div>
-                        <input id="prenom" class="<?php if(isset($_SESSION['champs']['prenom'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="prenom" value="<?php if(isset($prenom)){echo $prenom; }?>" >
+                        <input id="prenom" cl-validate-not-empty class="<?php if(isset($_SESSION['champs']['prenom'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="prenom" value="<?php if(isset($prenom)){echo $prenom; }?>" >
                     </div>
                     <?php if(isset($_SESSION['champs']['prenom'])) { ?>
                         <span class="erreur"><?php echo $_SESSION['champs']['prenom']; ?></span>
@@ -169,7 +171,9 @@
                 </div>
                 <div class="bloc-input-form">
                   <div class="">
-                    <input id="ville" class="<?php if(isset($_SESSION['champs']['ville'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="ville" value="" >
+                    <select id="ville" class="<?php if(isset($_SESSION['champs']['ville'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="ville" value="" >
+
+                    </select>
                   </div>
                   <?php if(isset($_SESSION['champs']['ville'])) { ?>
                       <span class="erreur"><?php echo $_SESSION['champs']['ville']; ?></span>
