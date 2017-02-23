@@ -76,7 +76,7 @@ input.erreur{
   border : red solid 2px;
 }
 
-span.erreur{
+span.erreur, p.erreur{
   color: red;
 }
 
