@@ -1,0 +1,45 @@
+body{
+  background: black;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.entete {
+
+}
+.paragraph{
+  color : white;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.mailform{
+  color : white;
+  text-align: center;
+}
+
+.container_mail{
+  margin-top: 5%;
+}
+
+.input{
+  border: white 2px solid;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.mail{
+  width: 30%;
+}
+
+.bouton_mail{
+  margin-left: 1%;
+  width: 10%;
+}
