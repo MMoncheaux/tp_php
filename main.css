@@ -57,7 +57,7 @@ body{
   color: white;
 }
 
-input[type="text"],input[type="tel"],input[type="mail"] {
+input[type="text"],input[type="tel"],input[type="mail"], select{
   color: white;
   width: 100%;
   border : white solid 2px;
@@ -65,6 +65,11 @@ input[type="text"],input[type="tel"],input[type="mail"] {
   padding: 4px;
   border-radius: 2px;
   font-size: 1em;
+}
+
+
+select.erreur{
+  border : red solid 2px;
 }
 
 input.erreur{

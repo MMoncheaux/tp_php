@@ -172,7 +172,8 @@
                 <div class="bloc-input-form">
                   <div class="">
                     <select id="ville" class="<?php if(isset($_SESSION['champs']['ville'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="ville" value="" >
-
+                        <option>lomme</option>
+                        <option>lille</option>
                     </select>
                   </div>
                   <?php if(isset($_SESSION['champs']['ville'])) { ?>

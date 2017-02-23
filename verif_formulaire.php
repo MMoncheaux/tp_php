@@ -114,6 +114,7 @@ session_start();
     var_dump($champs);
     header("location:erreur_form.php");
     $_SESSION['champs'] = $champs;
+
   }
 
 
@@ -180,7 +181,7 @@ session_start();
          $stmt ->bindParam(':email', $email);
          $stmt ->bindParam(':GUID', $_SESSION['GUID']);
          $result = $stmt->execute();
-         //header("location: form_validate.php");
+         header("location: form_validate.php");
       }
       else
       {
@@ -229,13 +230,13 @@ session_start();
          $stmt ->bindParam(':email', $email);
          $stmt ->bindParam(':GUID', $_SESSION['GUID']);
          $result = $stmt->execute();
-         //header("location: form_validate.php");
+         header("location: form_validate.php");
       }
     }
     else
     {
         $_SESSION['input'] = $_POST;
         var_dump($_POST);
-        //header("location:erreur_form.php");
+        header("location:erreur_form.php");
     }
   }
