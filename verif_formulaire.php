@@ -54,6 +54,7 @@ session_start();
   {
     $champs['code_postal'] = "Veuillez indiquer un code postal existant";
   }
+ 
 
   if(!isset($_POST['ville']) ||  empty($_POST['ville']))
   {
@@ -179,11 +180,11 @@ session_start();
          $stmt ->bindParam(':email', $email);
          $stmt ->bindParam(':GUID', $_SESSION['GUID']);
          $result = $stmt->execute();
-         header("location: form_validate.php");
+         //header("location: form_validate.php");
       }
       else
       {
-        $stmt = $db->prepare("INSERT INTO `client`(
+        $stmt = $db->prepare('INSERT INTO `client`(
          `civilite`,
          `nom`,
          `prenom`,
@@ -206,7 +207,7 @@ session_start();
          :telephone1,
          :telephone2,
          :email,
-         :GUID)");
+         :GUID)');
          extract($_POST);
 
         if(!isset($telephone1)){
@@ -228,12 +229,13 @@ session_start();
          $stmt ->bindParam(':email', $email);
          $stmt ->bindParam(':GUID', $_SESSION['GUID']);
          $result = $stmt->execute();
-         header("location: form_validate.php");
+         //header("location: form_validate.php");
       }
     }
     else
     {
         $_SESSION['input'] = $_POST;
-        header("location:erreur_form.php");
+        var_dump($_POST);
+        //header("location:erreur_form.php");
     }
   }
