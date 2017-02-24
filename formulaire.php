@@ -42,10 +42,11 @@
                           <span class="<?php if(isset($_SESSION['champs']['gender'])){echo "squared-erreur"; }else{echo "squared";} ?>"></span>
                           Monsieur
                       </label>
+
+                      <?php if(isset($_SESSION['champs']['gender'])) { ?>
+                          <br><span class="erreur"><?php echo $_SESSION['champs']['gender']; ?></span>
+                      <?php } ?>
                   </div>
-                <?php if(isset($_SESSION['champs']['gender'])) { ?>
-                <span class="erreur"><?php echo $_SESSION['champs']['gender']; ?></span>
-                <?php } ?>
               </div>
             </div>
             <div class="container-formgroup">
@@ -74,10 +75,11 @@
                 <div class="bloc-input-form">
                     <div>
                         <input id="prenom" cl-validate-not-empty class="<?php if(isset($_SESSION['champs']['prenom'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="prenom" value="<?php if(isset($prenom)){echo $prenom; }?>" >
+
+                        <?php if(isset($_SESSION['champs']['prenom'])) { ?>
+                            <br><span class="erreur"><?php echo $_SESSION['champs']['prenom']; ?></span>
+                        <?php } ?>
                     </div>
-                    <?php if(isset($_SESSION['champs']['prenom'])) { ?>
-                        <span class="erreur"><?php echo $_SESSION['champs']['prenom']; ?></span>
-                    <?php } ?>
                 </div>
               </div>
 
@@ -92,10 +94,11 @@
                   <div class="bloc-input-form">
                       <div>
                           <input id="nom-societe" class="<?php if(isset($_SESSION['champs']['nom_societe'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="nom_societe" value="<?php if(isset($nom_societe)){ echo $nom_societe;} ?>">
+
+                          <?php if(isset($_SESSION['champs']['nom_societe'])) { ?>
+                              <br><span class="erreur"><?php echo $_SESSION['champs']['nom_societe']; ?></span>
+                          <?php } ?>
                       </div>
-                      <?php if(isset($_SESSION['champs']['nom_societe'])) { ?>
-                          <span class="erreur"><?php echo $_SESSION['champs']['nom_societe']; ?></span>
-                      <?php } ?>
                   </div>
                 </div>
 
@@ -109,10 +112,11 @@
                   <div class="bloc-input-form">
                       <div>
                           <input id="poste" class="<?php if(isset($_SESSION['champs']['poste'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="poste" value="<?php if(isset($poste)){ echo $poste;} ?>" >
+                          <?php if(isset($_SESSION['champs']['poste'])) { ?>
+                              <br><span class="erreur"><?php echo $_SESSION['champs']['poste']; ?></span>
+                          <?php } ?>
                       </div>
-                      <?php if(isset($_SESSION['champs']['poste'])) { ?>
-                          <span class="erreur"><?php echo $_SESSION['champs']['poste']; ?></span>
-                      <?php } ?>
+
                   </div>
                 </div>
 
@@ -128,10 +132,11 @@
                         <div class="bloc-input-form">
                             <div>
                                 <input id="adresse1" class="<?php if(isset($_SESSION['champs']['adresse1'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="adresse1" value="<?php if (isset($adresse1)) { echo $adresse1; } ?>">
+                                <?php if (isset($_SESSION['champs']['adresse1'])) { ?>
+                                    <br><span class="erreur"><?php echo $_SESSION['champs']['adresse1']; ?></span>
+                                <?php } ?>
                             </div>
-                            <?php if (isset($_SESSION['champs']['adresse1'])) { ?>
-                                <span class="erreur"><?php echo $_SESSION['champs']['adresse1']; ?></span>
-                            <?php } ?>
+
                         </div>
                     </div>
 
@@ -156,10 +161,11 @@
                   <div class="bloc-input-form">
                     <div>
                       <input id="code-postal" class="<?php if(isset($_SESSION['champs']['code_postal'])){echo "erreur"; }else{echo "input-form cp";} ?>" type="text" name="code_postal" value="" maxlength="5">
+
+                        <?php if(isset($_SESSION['champs']['code_postal'])) { ?>
+                            <br><span class="erreur"><?php echo $_SESSION['champs']['code_postal']; ?></span>
+                        <?php } ?>
                     </div>
-                    <?php if(isset($_SESSION['champs']['code_postal'])) { ?>
-                      <span class="erreur"><?php echo $_SESSION['champs']['code_postal']; ?></span>
-                    <?php } ?>
                   </div>
               </div>
             </div>
@@ -172,13 +178,13 @@
                 <div class="bloc-input-form">
                   <div class="">
                     <select id="ville" class="<?php if(isset($_SESSION['champs']['ville'])){echo "erreur"; }else{echo "input-form";} ?>" type="text" name="ville" value="" >
-                        <option>lomme</option>
-                        <option>lille</option>
+
                     </select>
+
+                      <?php if(isset($_SESSION['champs']['ville'])) { ?>
+                          <br><span class="erreur"><?php echo $_SESSION['champs']['ville']; ?></span>
+                      <?php } ?>
                   </div>
-                  <?php if(isset($_SESSION['champs']['ville'])) { ?>
-                      <span class="erreur"><?php echo $_SESSION['champs']['ville']; ?></span>
-                  <?php } ?>
                 </div>
               </div>
 
@@ -209,10 +215,11 @@
                     <div class="bloc-input-form">
                         <div>
                             <input id="telephone-societe" class="<?php if(isset($_SESSION['champs']['telephone2'])){echo "erreur"; }else{echo "input-form";} ?>" type="tel" name="telephone2" value="<?php if(isset($telephone2)){ echo $telephone2;} ?>">
+                            <?php if(isset($_SESSION['champs']['telephone2'])) { ?>
+                                <br><span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
+                            <?php } ?>
                         </div>
-                        <?php if(isset($_SESSION['champs']['telephone2'])) { ?>
-                            <span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
-                        <?php } ?>
+
                     </div>
               </div>
       <?php } else{ ?>
@@ -269,10 +276,11 @@
                 <div class="bloc-input-form">
                   <div class="">
                     <input id="email" class="<?php if(isset($_SESSION['champs']['email'])){echo "erreur"; }else{echo "input-form";} ?>" type="mail" name="email" value="" >
+                      <?php if(isset($_SESSION['champs']['email'])) { ?>
+                          <br><span class="erreur"><?php echo $_SESSION['champs']['email']; ?></span>
+                      <?php } ?>
                   </div>
-                  <?php if(isset($_SESSION['champs']['email'])) { ?>
-                      <span class="erreur"><?php echo $_SESSION['champs']['email']; ?></span>
-                  <?php } ?>
+
                 </div>
               </div>
 
