@@ -15,7 +15,6 @@ function array_to_xml($array, &$xml) {
         }
     }
 }
-
 require('config/bdd.php');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 $last = file_get_contents('cache/lastexport.txt');
@@ -32,5 +31,5 @@ $clients = $req->fetchAll();
 $xml = new SimpleXMLElement('<clients></clients>');
 array_to_xml($clients, $xml);
 $xml->asXML('cache/export.xml');
-header('Location: cache/export.xml');
 file_put_contents('cache/lastexport.txt', time());
+header('Location: cache/export.xml');

@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="bloc-input-form">
                                         <div class="">
-                                            <input id="email" data-cond="this.value != ''" data-error="Veuillez indiquer un email valide" class="<?php if (isset($_SESSION['champs']['email'])) { echo "erreur"; } ?>" type="mail" name="email" value="<?php if (isset($email)) { echo $email; } ?>">
+                                            <input id="email" data-cond="this.value != '' && RegExp(`^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$`).test(this.value)" data-error="Veuillez indiquer un email valide" class="<?php if (isset($_SESSION['champs']['email'])) { echo "erreur"; } ?>" type="mail" name="email" value="<?php if (isset($email)) { echo $email; } ?>">
                                             <?php if (isset($_SESSION['champs']['email'])) { ?>
                                                 <br><span class="erreur"><?php echo $_SESSION['champs']['email']; ?></span>
                                             <?php } ?>
