@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Formulaire</title>
-    <link rel="stylesheet" href="main.css">
-      <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+      <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
 
 
@@ -22,7 +22,7 @@
   <body>
     <div class="container">
       <div class="entete_form">
-        <img src="logo_entreprise.jpg">
+        <img src="images/logo_entreprise.jpg">
       </div>
       <div class="middle">
         <div class="container-form">
@@ -299,6 +299,6 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
   </body>
 </html>
