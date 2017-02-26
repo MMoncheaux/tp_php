@@ -4,14 +4,7 @@ session_start();
 
 if(isset($_GET['q']) && !empty($_GET['q']))
 {
-  try
-  {
-    $db = new PDO('mysql:host=localhost;dbname=connectlife;charset=utf8mb4', 'root', '');
-  }
-  catch(PDOException $e)
-  {
-    echo $e->getMessage();
-  }
+  require('config/bdd.php');
 
   $stmt = $db->prepare("SELECT GUID, societe FROM guid WHERE GUID = ?");
   $stmt ->execute(array($_GET['q']));
