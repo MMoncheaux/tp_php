@@ -47,8 +47,8 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
         <h2>Bienvenu sur le site de ConnectLife</h2>
     </div>
 
-    <div>
-        <a href="formulaire.php">Lien pour le formulaire</a>
+    <div class="acc-lien">
+        <a href="formulaire.php" class="bouton">Lien pour le formulaire</a>
     </div>
 
 

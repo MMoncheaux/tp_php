@@ -46,6 +46,20 @@ body{
   font-size: 1em;
 }
 
+.acc-lien{
+  text-align: center;
+  padding-top:20px;
+}
+
+.acc-lien a{
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.acc-lien a:hover{
+  text-decoration: underline;
+}
+
 
 
 .checkbox input{
