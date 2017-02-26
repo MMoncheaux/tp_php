@@ -7,13 +7,7 @@ $_GET['q'] = "1fde3e0a-d149-473d-ad92-7a979c06f01c";
 
 $_POST['mail'] = "jeremy.bonhomme@societe2.fr";
 
-try{
-$db = new PDO('mysql:host=localhost;dbname=connectlife;charset=utf8mb4', 'root', '');
-echo "connection réussi";
-}
-catch(PDOException $e){
-   echo $e->getMessage();
-}
+require('config/bdd.php');
 
 
 $stmt = $db->prepare("INSERT INTO client ("
@@ -71,12 +65,7 @@ else
 
     if(isset($_GET['q']) && !empty ($_GET['q']))
 {
-   try{
-        $db = new PDO('mysql:host=localhost;dbname=connectlife;charset=utf8mb4', 'root', '');
-    }   
-    catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    require('config/bdd.php');
     
     $stmt = $db->prepare("SELECT id FROM client WHERE GUID = ?");
     $stmt ->execute(array($_GET['q']));

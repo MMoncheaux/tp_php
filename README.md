@@ -1,5 +1,5 @@
 # tp_php
-miseà jour BDD client 
+mise à jour BDD client 
 
 ======
 Test github
