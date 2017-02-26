@@ -24,6 +24,8 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
             $_SESSION['societe'] = $societe;
         }
     }
+}else{
+    header('location:erreur_url.php');
 }
 ?>
 
