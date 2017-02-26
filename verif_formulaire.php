@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require('config/bdd.php');
 $champs = [];
 
 
@@ -8,15 +8,11 @@ if (!isset($_POST['gender']) || empty($_POST['gender'])) {
     $champs['gender'] = "Veuillez indiquer votre civilité";
 }
 
-if (!isset($_POST['nom']) || empty($_POST['nom'])) {
-    $champs['nom'] = "Veuillez indiquer un nom valide";
-} elseif (is_numeric($_POST['nom'])) {
+if (!isset($_POST['nom']) || empty($_POST['nom']) || is_numeric($_POST['nom'])) {
     $champs['nom'] = "Veuillez indiquer un nom valide";
 }
 
-if (!isset($_POST['prenom']) || empty($_POST['prenom'])) {
-    $champs['prenom'] = "Veuillez indiquer un prénom valide";
-} elseif (is_numeric($_POST['prenom'])) {
+if (!isset($_POST['prenom']) || empty($_POST['prenom']) || is_numeric($_POST['prenom'])) {
     $champs['prenom'] = "Veuillez indiquer un prénom valide";
 }
 
@@ -34,9 +30,7 @@ if (!isset($_POST['adresse1']) || empty($_POST['adresse1'])) {
     $champs['adresse1'] = "Veuillez indiquer une adresse";
 }
 
-if (!isset($_POST['code_postal']) || empty($_POST['code_postal'])) {
-    $champs['code_postal'] = "Veuillez indiquer un code postal existant";
-} elseif (is_nan($_POST['code_postal'])) {
+if (!isset($_POST['code_postal']) || empty($_POST['code_postal']) || is_nan($_POST['code_postal'])) {
     $champs['code_postal'] = "Veuillez indiquer un code postal existant";
 }
 
@@ -46,22 +40,16 @@ if (!isset($_POST['ville']) || empty($_POST['ville'])) {
 }
 
 if ($_SESSION['societe'] == 1) {
-    if (!isset($_POST['telephone1']) || empty($_POST['telephone1'])) {
-        $champs['telephone1'] = "Veuillez indiquer un numéro de téléphone valide";
-    } elseif (is_nan($_POST['telephone1'])) {
+    if (!isset($_POST['telephone1']) || empty($_POST['telephone1']) || is_nan($_POST['telephone1'])) {
         $champs['telephone1'] = "Veuillez indiquer un numéro de téléphone valide";
     }
 
-    if (!isset($_POST['telephone2']) || empty($_POST['telephone2'])) {
-        $champs['telephone2'] = "Veuillez indiquer un numéro de téléphone valide";
-    } elseif (is_nan($_POST['telephone2'])) {
+    if (!isset($_POST['telephone2']) || empty($_POST['telephone2']) || is_nan($_POST['telephone2'])) {
         $champs['telephone2'] = "Veuillez indiquer un numéro de téléphone valide";
     }
 } else {
     if ((!isset($_POST['telephone1']) || empty($_POST['telephone1'])) || (!isset($_POST['telephone2']) || empty($_POST['telephone2']))) {
         $champs['telephone1'] = "Veuillez indiquer un numéro de téléphone valide";
-        $champs['telephone2'] = "Veuillez indiquer un numéro de téléphone valide";
-
     } else {
         if (isset($_POST['telephone1']) && !empty($_POST['telephone1']) && is_nan($_POST['telephone1'])) {
             $champs['telephone1'] = "Veuillez indiquer un numéro de téléphone valide";
@@ -72,24 +60,27 @@ if ($_SESSION['societe'] == 1) {
     }
 }
 
-if (!isset($_POST['email']) || empty($_POST['email'])) {
-    $champs['email'] = "Veuillez indiquer un email valide";
-} elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+if (!isset($_POST['email']) || empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
     $champs['email'] = "Veuillez indiquer un email valide";
 }
 
-$_SESSION['champs'] = $champs;
+if(isset($_POST['ville']) && !empty($_POST['ville'])){
+    $req = $db->prepare('SELECT ville_nom FROM villes WHERE ville_id=?');
+    $req->execute([$_POST['ville']]);
+    $dataville = $req->fetch();
+    $_POST['villenom'] = $dataville[0];
+}
 
-if (count($champs) != 0) {
-    var_dump($champs);
-    header("location:erreur_form.php");
+if (count($champs) > 0) {
+    reset($_SESSION['champs']);
+    reset($_SESSION['input']);
     $_SESSION['champs'] = $champs;
-
+    $_SESSION['input'] = $_POST;
+    header("location:formulaire.php");
 }
 
 
 if (count($champs) == 0) {
-    require('config/bdd.php');
 
     $stmt = $db->prepare("SELECT email FROM guid WHERE email = ?");
     $stmt->execute(array($_POST['email']));
@@ -193,8 +184,10 @@ if (count($champs) == 0) {
             header("location: form_validate.php");
         }
     } else {
+        reset($_SESSION['champs']);
+        reset($_SESSION['input']);
+        $_SESSION['champs'] = $champs;
         $_SESSION['input'] = $_POST;
-        var_dump($_POST);
         header("location:erreur_form.php");
     }
 }

@@ -1,31 +1,4 @@
-/*
- (function($)
- {
- $(document).ready(function()
- {
- var $els = $('[cl-validate-not-empty]');
-
- $els.on('keyup keypress', function (e) {
- var $el = $(e.target);
- if ($el.val().length > 0) {
- $el.removeClass('erreur');
- $el.parent().siblings('span.erreur:first').hide();
- }
- });
-
- $els.blur(function(e) {
- var $el = $(e.target);
- if ($el.val().length <= 0) {
- $el.addClass('erreur');
- $el.parent().siblings('span.erreur:first').show();
- }
- });
- });
- })(jQuery);
- */
-
-
-(function ($) {
+(function () {
 
     var unBindError = function (element) {
         element.classList.remove('erreur')
@@ -43,55 +16,31 @@
         element.parentElement.appendChild(span);
     }
 
-    var bindErrors = function (element, condition, texte) {
-        var node = document.querySelector(element)
-        node.addEventListener('input', function (e) {
-            if (eval(condition)) {
-                unBindError(node)
-            } else {
-                showError(node, texte)
-            }
-        })
-    }
-
-    var bindErrorsUpdate = function (element, condition) {
-        var node = document.querySelector(element)
-        node.addEventListener('input', function (e) {
-            if (eval(condition)) {
-                unBindError(node)
-            } else {
-                showError(node, node.getAttribute('data-error'))
-            }
-        })
-    }
-
-    var bindErrorsUpdate2 = function (element) {
+    var bindErrors = function (element) {
         var node = document.querySelector(element)
         var condition = node.getAttribute('data-cond')
-        var error = node.getAttribute('data-error')
-        node.removeAttribute('data-cond')
-        node.removeAttribute('data-error')
-        node.addEventListener('input', function (e) {
-            if (eval(condition)) {
-                unBindError(node)
-            } else {
-                showError(node, error)
-            }
-        })
+        if(condition !== null){
+            var error = node.getAttribute('data-error')
+            node.removeAttribute('data-cond')
+            node.removeAttribute('data-error')
+            node.addEventListener('input', function (e) {
+                if (eval(condition)) {
+                    unBindError(node)
+                } else {
+                    showError(node, error)
+                }
+            })
+        }
+
     }
 
 
     var all = document.querySelectorAll('input')
     all.forEach(function (v) {
         if (v.id) {
-            bindErrorsUpdate2("#" + v.id);
+            bindErrors("#" + v.id);
         }
     })
-    /*
-     bindErrors('#telephone-portable', 'this.value != "" && !isNaN(this.value)', "Veuillez indiquer un tel valide");
-     bindErrors('#nom', 'this.value != "" && isNaN(this.value)', "Veuillez indiquer un nom valide");
-     bindErrors('#telephone-fixe', 'this.value != "" && !isNaN(this.value)', "Veuillez indiquer un tel valide");
-     */
 
     var addOption = function(element, key, value){
         var option = document.createElement("option");
@@ -126,4 +75,4 @@
         }
     })
 
-})(jQuery)
+})()
