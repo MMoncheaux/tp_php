@@ -120,12 +120,7 @@ session_start();
 
   if(count($champs) == 0)
   {
-    try{
-      $db = new PDO('mysql:host=localhost;dbname=connectlife;charset=utf8mb4', 'root', '');
-    }
-    catch(PDOException $e){
-        echo $e->getMessage();
-    }
+      require('bdd.php');
 
     $stmt = $db->prepare("SELECT email FROM guid WHERE email = ?");
     $stmt ->execute(array($_POST['email']));
