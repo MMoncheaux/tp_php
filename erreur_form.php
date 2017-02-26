@@ -11,7 +11,7 @@ if(isset($_SESSION['input'])){
    <head>
      <meta charset="utf-8">
      <title>Accueil</title>
-     <link rel="stylesheet" href="styles/main.css">
+     <link rel="stylesheet" href="main.css">
    </head>
    <body>
      <div class="container">
