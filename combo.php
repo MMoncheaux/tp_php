@@ -18,18 +18,18 @@
             border-radius: 2px;
 
         }
-        span{
+        .combo span{
             height: 100%;
             margin: 0;
             padding: 0;
             float: left;
             box-sizing: border-box;
         }
-        .text{
+        .combo .text{
             width:calc(100% - 40px);
             padding:0 2%;
         }
-        .fleche{
+        .combo .fleche{
             width: 40px;
             text-align: center;
             border-left:2px #eee solid;

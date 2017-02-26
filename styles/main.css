@@ -90,9 +90,10 @@ input.erreur{
   border : red solid 2px;
 }
 
-span.erreur, p.erreur{
+span.erreur{
   color: red;
 }
+
 
 .squared-erreur{
   background-color: black;

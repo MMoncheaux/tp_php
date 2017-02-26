@@ -64,7 +64,7 @@ if (!isset($_POST['email']) || empty($_POST['email']) || !filter_var($_POST['ema
     $champs['email'] = "Veuillez indiquer un email valide";
 }
 
-if(isset($_POST['ville']) && !empty($_POST['ville'])){
+if (isset($_POST['ville']) && !empty($_POST['ville'])) {
     $req = $db->prepare('SELECT ville_nom FROM villes WHERE ville_id=?');
     $req->execute([$_POST['ville']]);
     $dataville = $req->fetch();
@@ -72,8 +72,12 @@ if(isset($_POST['ville']) && !empty($_POST['ville'])){
 }
 
 if (count($champs) > 0) {
-    reset($_SESSION['champs']);
-    reset($_SESSION['input']);
+    if (count($_SESSION['champs']) > 0) {
+        reset($_SESSION['champs']);
+    }
+    if (count($_SESSION['input']) > 0) {
+        reset($_SESSION['input']);
+    }
     $_SESSION['champs'] = $champs;
     $_SESSION['input'] = $_POST;
     header("location:formulaire.php");
@@ -184,8 +188,12 @@ if (count($champs) == 0) {
             header("location: form_validate.php");
         }
     } else {
-        reset($_SESSION['champs']);
-        reset($_SESSION['input']);
+        if (count($_SESSION['champs']) > 0) {
+            reset($_SESSION['champs']);
+        }
+        if (count($_SESSION['input']) > 0) {
+            reset($_SESSION['input']);
+        }
         $_SESSION['champs'] = $champs;
         $_SESSION['input'] = $_POST;
         header("location:erreur_form.php");

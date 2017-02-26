@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Formulaire</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/combo.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
 
@@ -174,16 +175,19 @@
                             <label for="ville" class="intitule">Ville * :</label>
                         </div>
                         <div class="bloc-input-form">
-                            <div class="">
-                                <select id="ville" data-cond="this.value != ''" data-error="Veuillez choisir une ville dans la liste" class="input-form <?php if (isset($_SESSION['champs']['ville'])) { echo "erreur"; } ?>" type="text" name="ville">
-                                    <?php if (isset($ville)) { ?>
-                                        <option value="<?= $ville ?>" selected><?= $villenom ?></option>
-                                    <?php } ?>
-                                </select>
-                                <?php if (isset($_SESSION['champs']['ville'])) { ?>
-                                    <br><span class="erreur"><?php echo $_SESSION['champs']['ville']; ?></span>
-                                <?php } ?>
+                            <div>
+                            <div id="combo-module" class="combo <?php if (isset($_SESSION['champs']['ville'])) { echo "combo-erreur"; } ?>">
+                                <input id="combo-input" type="hidden" name="ville" value="<?php if(isset($ville)){ echo $ville; } ?>">
+                                <span id="combo-text" class="text"><?php if(isset($villenom)){ echo $villenom; } ?></span>
+                                <span id="combo-arrow" class="fleche">\/</span>
+                                <div id="combo-options" class="combo-options close">
+                                </div>
                             </div>
+                        </div>
+
+                        <?php if (isset($_SESSION['champs']['ville'])) { ?>
+                            <span class="erreur"><?php echo $_SESSION['champs']['ville']; ?></span>
+                        <?php } ?>
                         </div>
                     </div>
 
@@ -241,7 +245,7 @@
                                 <div>
                                     <input data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" id="telephone-fixe" class=" input-form <?php if (isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { echo "erreur"; } ?>" type="tel" name="telephone1" value="<?php if (isset($telephone1)) { echo $telephone1; } ?>">
 
-                                    <?php if (isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { ?>
+                                    <?php if (isset($_SESSION['champs']['telephone1'])) { ?>
                                         <br> <span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
                                     <?php } ?>
                                 </div>
@@ -257,7 +261,7 @@
                                     <div>
                                         <input id="telephone-portable" data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { echo "erreur"; } ?>" type="tel" name="telephone2" value="<?php if (isset($telephone2)) { echo $telephone2; } ?>">
 
-                                        <?php if (isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { ?>
+                                        <?php if (isset($_SESSION['champs']['telephone2'])) { ?>
                                             <br><span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
                                         <?php } ?>
                                     </div>
