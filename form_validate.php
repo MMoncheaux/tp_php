@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Accueil</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
     <div class="container">
       <div class="entete">
-        <img src="logo_entreprise.jpg" alt="">
+        <img src="images/logo_entreprise.jpg" alt="">
       </div>
 
       <div class="paragraph">
