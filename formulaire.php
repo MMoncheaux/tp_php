@@ -160,7 +160,7 @@
                         </div>
                         <div class="bloc-input-form">
                             <div>
-                                <input id="code-postal" data-cond="this.value != ''" data-error="Veuillez indiquer un code postal existant" class="input-form cp <?php if (isset($_SESSION['champs']['code_postal'])) { echo "erreur"; } ?>" type="text" name="code_postal" value="<?php if (isset($code_postal)) { echo $code_postal; } ?>" maxlength="5">
+                                <input id="code-postal" data-cond="this.value != '' " data-error="Veuillez indiquer un code postal existant" class="input-form cp <?php if (isset($_SESSION['champs']['code_postal'])) { echo "erreur"; } ?>" type="text" name="code_postal" value="<?php if (isset($code_postal)) { echo $code_postal; } ?>" maxlength="5">
                                 <?php if (isset($_SESSION['champs']['code_postal'])) { ?>
                                     <br><span class="erreur"><?php echo $_SESSION['champs']['code_postal']; ?></span>
                                 <?php } ?>
@@ -179,7 +179,7 @@
                             <div id="combo-module" class="combo <?php if (isset($_SESSION['champs']['ville'])) { echo "combo-erreur"; } ?>">
                                 <input id="combo-input" type="hidden" name="ville" value="<?php if(isset($ville)){ echo $ville; } ?>">
                                 <span id="combo-text" class="text"><?php if(isset($villenom)){ echo $villenom; } ?></span>
-                                <span id="combo-arrow" class="fleche">\/</span>
+                                <span id="combo-arrow" class="fleche ">\/</span>
                                 <div id="combo-options" class="combo-options close">
                                 </div>
                             </div>
@@ -200,7 +200,7 @@
                         </div>
                         <div class="bloc-input-form">
                             <div>
-                                <input id="telephone-societe" data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone1'])) { echo "erreur"; } ?>" type="tel" name="telephone1" value="<?php if (isset($telephone1)) { echo $telephone1; } ?>" >
+                                <input id="telephone-societe" data-cond="this.value != '' && RegExp(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g).test(this.value)" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone1'])) { echo "erreur"; } ?>" type="tel" name="telephone1" value="<?php if (isset($telephone1)) { echo $telephone1; } ?>" >
                                 <?php if (isset($_SESSION['champs']['telephone1'])) { ?>
                                     <br><span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
                                 <?php } ?>
@@ -216,7 +216,7 @@
                         </div>
                         <div class="bloc-input-form">
                             <div>
-                                <input id="telephone-societe" data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone2'])) { echo "erreur"; } ?>" type="tel" name="telephone2" value="<?php if (isset($telephone2)) { echo $telephone2; } ?>">
+                                <input id="telephone-societe" data-cond="this.value != '' && RegExp(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g).test(this.value)" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone2'])) { echo "erreur"; } ?>" type="tel" name="telephone2" value="<?php if (isset($telephone2)) { echo $telephone2; } ?>">
                                 <?php if (isset($_SESSION['champs']['telephone2'])) { ?>
                                     <br><span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
                                 <?php } ?>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="bloc-input-form">
                                 <div>
-                                    <input data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" id="telephone-fixe" class=" input-form <?php if (isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { echo "erreur"; } ?>" type="tel" name="telephone1" value="<?php if (isset($telephone1)) { echo $telephone1; } ?>">
+                                    <input data-cond="this.value != '' && RegExp(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g).test(this.value)" data-error="Veuillez indiquer un numéro de téléphone valide" id="telephone-fixe" class=" input-form <?php if (isset($_SESSION['champs']['telephone1']) || isset($_SESSION['champs']['telephone2'])) { echo "erreur"; } ?>" type="tel" name="telephone1" value="<?php if (isset($telephone1)) { echo $telephone1; } ?>">
 
                                     <?php if (isset($_SESSION['champs']['telephone1'])) { ?>
                                         <br> <span class="erreur"><?php echo $_SESSION['champs']['telephone1']; ?></span>
@@ -259,7 +259,7 @@
                                 </div>
                                 <div class="bloc-input-form">
                                     <div>
-                                        <input id="telephone-portable" data-cond="this.value != ''" data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { echo "erreur"; } ?>" type="tel" name="telephone2" value="<?php if (isset($telephone2)) { echo $telephone2; } ?>">
+                                        <input id="telephone-portable" data-cond="this.value != '' && && RegExp(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g).test(this.value)"  data-error="Veuillez indiquer un numéro de téléphone valide" class="input-form <?php if (isset($_SESSION['champs']['telephone2']) || isset($_SESSION['champs']['telephone1'])) { echo "erreur"; } ?>" type="tel" name="telephone2" value="<?php if (isset($telephone2)) { echo $telephone2; } ?>">
 
                                         <?php if (isset($_SESSION['champs']['telephone2'])) { ?>
                                             <br><span class="erreur"><?php echo $_SESSION['champs']['telephone2']; ?></span>
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="bloc-input-form">
                                         <div class="">
-                                            <input id="email" data-cond="this.value != '' && RegExp(`^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$`).test(this.value)" data-error="Veuillez indiquer un email valide" class="<?php if (isset($_SESSION['champs']['email'])) { echo "erreur"; } ?>" type="mail" name="email" value="<?php if (isset($email)) { echo $email; } ?>">
+                                            <input id="email" data-cond="this.value != '' && RegExp(`^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$`).test(this.value)" data-error="Veuillez indiquer un email valide" class="input-form <?php if (isset($_SESSION['champs']['email'])) { echo "erreur"; } ?>" type="mail" name="email" value="<?php if (isset($email)) { echo $email; } ?>">
                                             <?php if (isset($_SESSION['champs']['email'])) { ?>
                                                 <br><span class="erreur"><?php echo $_SESSION['champs']['email']; ?></span>
                                             <?php } ?>
