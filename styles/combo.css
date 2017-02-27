@@ -64,4 +64,5 @@
 
 .combo-erreur .fleche{
     border-left:2px red solid;
+    color : red;
 }
