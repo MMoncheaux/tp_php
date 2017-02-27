@@ -1,0 +1,68 @@
+.combo{
+    width:100%;
+    color:#fff;
+    background-color: #000;
+    height: 34px;
+    border:2px #fff solid;
+    line-height: 30px;
+    border-radius: 2px;
+    position: relative;
+}
+.combo span{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    box-sizing: border-box;
+}
+.combo .text{
+    width:calc(100% - 40px);
+    padding:0 2%;
+}
+.combo .fleche{
+    width: 40px;
+    text-align: center;
+    border-left:2px #eee solid;
+    z-index:5;
+    cursor: pointer;
+}
+
+.combo .combo-options{
+    z-index: 99;
+    border:1px #fff solid;
+    padding-top:1px;
+    margin-top:33px;
+    background-color: #000;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.combo .close{
+    display: none;
+}
+
+.combo .combo-option{
+    background-color: #000;
+    color:#fff;
+    padding: 00px 10px;
+    box-sizing: border-box;
+    line-height:34px;
+    height: 34px;
+    border-bottom:1px #fff solid;
+    z-index: 100;
+    width:100%;
+    cursor: pointer;
+}
+
+.combo .combo-option:hover{
+    background-color: #222;
+}
+
+.combo-erreur{
+    border:2px red solid;
+}
+
+.combo-erreur .fleche{
+    border-left:2px red solid;
+    color : red;
+}

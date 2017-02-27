@@ -46,6 +46,20 @@ body{
   font-size: 1em;
 }
 
+.acc-lien{
+  text-align: center;
+  padding-top:20px;
+}
+
+.acc-lien a{
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.acc-lien a:hover{
+  text-decoration: underline;
+}
+
 
 
 .checkbox input{
@@ -57,17 +71,6 @@ body{
   color: white;
 }
 
-input[type="text"],input[type="tel"],input[type="mail"], select{
-  color: white;
-  width: 100%;
-  border : white solid 2px;
-  background-color: black;
-  padding: 4px;
-  border-radius: 2px;
-  font-size: 1em;
-}
-
-
 select.erreur{
   border : red solid 2px;
 }
@@ -76,31 +79,8 @@ input.erreur{
   border : red solid 2px;
 }
 
-span.erreur, p.erreur{
+span.erreur{
   color: red;
-}
-
-.squared-erreur{
-  background-color: black;
-  border: solid 2px red;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  vertical-align: middle;
-  position : relative;
-  border-radius: 2px;
-  color : red;
-}
-
-.checkbox input:checked + .squared-erreur:after{
-  content: '';
-  display: block;
-  width: 22px;
-  height: 22px;
-  background-color: white;
-  position: absolute;
-  top :2px;
-  left: 2px;
 }
 
 .mail{
@@ -128,12 +108,25 @@ span.erreur, p.erreur{
   position : relative;
   border-radius: 2px;
 }
+.checkbox input:checked + .squared:after{
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  position: absolute;
+  top :2px;
+  left: 2px;
+}
+.squared-erreur{
+  border: solid 2px red;
+}
 
 /*.checkbox input:checked + .squared{
   border-color: green;
 }*/
 
-.checkbox input:checked + .squared:after{
+.checkbox input:checked +.squared-erreur:after{
   content: '';
   display: block;
   width: 22px;
