@@ -102,11 +102,10 @@ if (count($champs) == 0) {
          `nom_societe`,
          `adresse1`,
          `adresse2`,
-         `code_postal`,
-         `ville`,
          `telephone1`,
          `telephone2`,
          `email`,
+         `ville_id`,
          `GUID`)
          VALUES (
          :civilite,
@@ -116,11 +115,10 @@ if (count($champs) == 0) {
          :nom_societe,
          :adresse1,
          :adresse2,
-         :code_postal,
-         :ville,
          :telephone1,
          :telephone2,
          :email,
+         :ville_id,
          :GUID)");
             extract($_POST);
             var_dump($_POST);
@@ -131,11 +129,10 @@ if (count($champs) == 0) {
             $stmt->bindParam(':nom_societe', $nom_societe);
             $stmt->bindParam(':adresse1', $adresse1);
             $stmt->bindParam(':adresse2', $adresse2);
-            $stmt->bindParam(':code_postal', $code_postal);
-            $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':telephone1', $telephone1);
             $stmt->bindParam(':telephone2', $telephone2);
             $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':ville_id', $ville_id);
             $stmt->bindParam(':GUID', $_SESSION['GUID']);
             $result = $stmt->execute();
             header("location: form_validate.php");
@@ -146,11 +143,10 @@ if (count($champs) == 0) {
          `prenom`,
          `adresse1`,
          `adresse2`,
-         `code_postal`,
-         `ville`,
          `telephone1`,
          `telephone2`,
          `email`,
+         `ville_id`,
          `GUID`)
          VALUES (
          :civilite,
@@ -158,11 +154,10 @@ if (count($champs) == 0) {
          :prenom,
          :adresse1,
          :adresse2,
-         :code_postal,
-         :ville,
          :telephone1,
          :telephone2,
          :email,
+         :ville_id,
          :GUID)');
             extract($_POST);
 
@@ -178,11 +173,10 @@ if (count($champs) == 0) {
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':adresse1', $adresse1);
             $stmt->bindParam(':adresse2', $adresse2);
-            $stmt->bindParam(':code_postal', $code_postal);
-            $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':telephone1', $telephone1);
             $stmt->bindParam(':telephone2', $telephone2);
             $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':ville_id', $ville_id);
             $stmt->bindParam(':GUID', $_SESSION['GUID']);
             $result = $stmt->execute();
             header("location: form_validate.php");
