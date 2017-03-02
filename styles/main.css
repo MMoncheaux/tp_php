@@ -4,7 +4,7 @@
 }
 body{
   background: black;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: sans-serif;
   color: white;
 }
@@ -17,8 +17,9 @@ body{
   transform: translateX(-50%);
 }
 
-.entete {
-
+.entete-form-img{
+    width: 100%;
+    margin-top: 20px;
 }
 .paragraph{
   color : white;
@@ -180,4 +181,30 @@ span.erreur{
 
 .right{
   text-align: right;
+}
+
+@media screen and (max-width: 1200px){
+    .container-form-input-bloc, .container-checkbox{
+        display: block;
+    }
+
+    .intitule, .bloc-input-form{
+        width: 100%;
+        margin-left:0;
+    }
+
+    .intitule{
+        padding-left:2%;
+        margin-bottom:2px;
+    }
+
+    .bloc-input-checkbox{
+        width: 100%;
+    }
+
+    .cp{
+        width: 60%;
+    }
+
+
 }

@@ -25,7 +25,7 @@
 <body>
 <div class="container">
     <div class="entete_form">
-        <img src="images/logo_entreprise.jpg">
+        <img class="entete-form-img" src="images/logo_entreprise.jpg">
     </div>
     <div class="middle">
         <div class="container-form">
@@ -33,7 +33,7 @@
                 <div class="container-formgroup container-checkbox">
                     <div class="intitule">Civilité * :</div>
                     <div class="bloc-input-form">
-                        <div>
+                        <div class="bloc-input-checkbox">
                             <label class="checkbox" for="madame">
                                 <input type="radio" id="madame" value="f" name="gender" <?php if (isset($gender) && $gender == "f") { echo "checked"; } ?> >
                                 <span class="squared <?php if (isset($_SESSION['champs']['gender'])) { echo "squared-erreur"; }?>"></span>

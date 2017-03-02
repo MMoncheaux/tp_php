@@ -45,8 +45,8 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 
     <div class="paragraph">
         <h2>Bienvenu sur le site de ConnectLife</h2>
-        <br><p>Bonjour, nous souhaitons étendre les renseignements de nos clients afin de pouvoir personnaliser nos offres les concernants.</p>
-        <p>Pour cela le lien ci-dessous vous emmenera vers un formulaire que vous devrez remplir, si vous le faites à l'issue de celui-ci, nous vous enverrons un bon d'achat
+        <br><p>Bonjour, nous souhaitons étendre les renseignements de nos clients afin de pouvoir personnaliser nos offres.</p>
+        <p>Pour cela le lien ci-dessous vous emmenera vers un formulaire que vous devrez remplir, si vous le faites à l'issue de celui-ci, vous recevrez un bon d'achat
         d'une valeur de 10€ valable chez tous nos partenaires.</p>
     </div>
 

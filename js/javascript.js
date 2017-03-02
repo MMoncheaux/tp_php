@@ -41,14 +41,7 @@
             bindErrors("#" + v.id);
         }
     })
-
-    var addOption = function (element, key, value) {
-        var option = document.createElement("option");
-        option.text = value;
-        option.value = key
-        element.add(option);
-    }
-
+    
     var addVilleOptions = function (options) {
         ComboModuleResetOptions(combo)
         options.forEach(function (v) {
@@ -58,7 +51,6 @@
 
     var getVilles = function (inputcp) {
         if (inputcp.value.length == 5 && !isNaN(inputcp.value)) {
-
             var xhr = new XMLHttpRequest()
             xhr.open('POST', 'ajax.php', true);
             xhr.onreadystatechange = function () {
@@ -109,7 +101,6 @@
     }
 
     var ComboModuleRefresh = function (combo) {
-
         var button = combo.querySelector('#combo-arrow')
         var text = combo.querySelector('#combo-text')
         var divoptions = combo.querySelector('#combo-options')
@@ -123,13 +114,6 @@
                 comboinput.value = value
                 ComboModuleToggle(button, divoptions)
             })
-        })
-    }
-
-    var ComboModuleInit = function () {
-        var combos = document.querySelectorAll("#combo-module")
-        combos.forEach(function(combo){
-            ComboModuleRefresh(combo)
         })
     }
 

@@ -132,7 +132,7 @@ if (count($champs) == 0) {
             $stmt->bindParam(':telephone1', $telephone1);
             $stmt->bindParam(':telephone2', $telephone2);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':ville_id', $ville_id);
+            $stmt->bindParam(':ville_id', $ville);
             $stmt->bindParam(':GUID', $_SESSION['GUID']);
             $result = $stmt->execute();
             header("location: form_validate.php");
@@ -176,7 +176,7 @@ if (count($champs) == 0) {
             $stmt->bindParam(':telephone1', $telephone1);
             $stmt->bindParam(':telephone2', $telephone2);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':ville_id', $ville_id);
+            $stmt->bindParam(':ville_id', $ville);
             $stmt->bindParam(':GUID', $_SESSION['GUID']);
             $result = $stmt->execute();
             header("location: form_validate.php");
