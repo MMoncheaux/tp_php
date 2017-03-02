@@ -12,7 +12,7 @@
       </div>
 
       <div class="paragraph">
-        <h2>Une erreur c'est produite, merci de nous contacter au ... afin de nous faire part de votre erreur.</h2>
+        <h3>Une erreur c'est produite, merci de contacter le service mass-mailing à cette <a href="mailto:support-mail@connectlife.com">adresse</a> afin de nous faire part de votre erreur.</h3>
       </div>
   </body>
 </html>

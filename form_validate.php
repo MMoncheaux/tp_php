@@ -12,7 +12,7 @@
       </div>
 
       <div class="paragraph">
-        <h2>Merci d'avoir pris le temps de remplir le formulaire.</h2>
+        <h3>Merci d'avoir pris le temps de remplir le formulaire. <br>Vous recevrez votre bon d'achat dans les plus bref délais à votre adresse.<br>Bien à vous, l'equipe Connectlife vous remercie.</h3>
       </div>
   </body>
 </html>
