@@ -12,7 +12,7 @@
       </div>
 
       <div class="paragraph">
-        <h3>Vous avez déjà rempli le formulaire merci de contacter le service mass-mailing à  <a href="mailto:support-mail@connectlife.com">l'adresse</a> suivante afin de nous faire part de votre problème.</h3>
+        <p>Vous avez déjà rempli le formulaire merci de contacter le service mass-mailing à  <a href="mailto:support-mail@connectlife.com">l'adresse</a> suivante afin de nous faire part de votre problème.</p>
       </div>
   </body>
 </html>

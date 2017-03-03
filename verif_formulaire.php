@@ -48,7 +48,7 @@ if ($_SESSION['societe'] == 1) {
         $champs['telephone2'] = "Veuillez indiquer un numéro de téléphone valide";
     }
 } else {
-    if ((!isset($_POST['telephone1']) || empty($_POST['telephone1'])) || (!isset($_POST['telephone2']) || empty($_POST['telephone2']))) {
+    if ((!isset($_POST['telephone1']) || empty($_POST['telephone1'])) && (!isset($_POST['telephone2']) || empty($_POST['telephone2']))) {
         $champs['telephone1'] = "Veuillez indiquer un numéro de téléphone valide";
     } else {
         if (isset($_POST['telephone1']) && !empty($_POST['telephone1']) && is_nan($_POST['telephone1'])) {
